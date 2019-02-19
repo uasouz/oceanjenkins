@@ -21,6 +21,7 @@ describe('Teste de api restful Node.JS em TypeScript', () => {
 
     describe('/GET test', () => {
         it('Test request test', (done) => {
+            //@ts-ignore
             chai.request(server).get('/api/test').end((err,res)=>{
                 res.should.have.status(200);
                 res.body.should.be.an('object');
@@ -31,6 +32,7 @@ describe('Teste de api restful Node.JS em TypeScript', () => {
 
     describe('/GET list', () => {
         it('Test request list', (done) => {
+            //@ts-ignore
             chai.request(server).get('/api/list').end((err,res)=>{
                 res.should.have.status(200);
                 res.body.should.be.an('object');
@@ -43,6 +45,7 @@ describe('Teste de api restful Node.JS em TypeScript', () => {
 
     describe('/GET sw', () => {
         it('Test request starwars', (done) => {
+            //@ts-ignore
             chai.request(server).get('/api/sw').end((err,res)=>{
                 res.should.have.status(200);
                 res.body.should.be.an('object');
