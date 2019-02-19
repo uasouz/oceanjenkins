@@ -14,7 +14,7 @@ pipeline{
 
         stage('Prepare Node'){
             steps{
-                sh 'ln -fs /usr/bin/nodejs /usr/local/bin/node'
+                sh 'ln -fs /var/lib/jenkins/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation /usr/local/bin/node'
             }
         }
 
