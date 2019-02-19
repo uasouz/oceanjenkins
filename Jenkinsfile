@@ -1,20 +1,28 @@
 #!/usr/bin/env groovy
 pipeline{
+
     agent any
 
-    tools {nodejs "node"}
+    tools {
+        nodejs "node"
+    }
+
     stages{
+
+        stage('Install Dependencies'){
+            steps {
+                sh 'npm install'
+            }
+        }
 
         stage('Test'){
             steps {
-                sh 'npm install'
                 sh 'npm run test'
             }
         }
 
         stage('Build'){
             steps{
-                sh 'npm install'
                 sh 'npm run build'
                 sh 'tar -zcvf app.tar.gz dist'
             }
