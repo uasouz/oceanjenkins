@@ -18,7 +18,7 @@ WORKDIR /usr/src/service
 
 RUN npm install pm2 -g
 
-COPY --from=builder /usr/src/abaddon/node_modules ./node_modules
+COPY --from=builder /usr/src/service/node_modules ./node_modules
 
 COPY --from=builder /usr/src/service/dist .
 

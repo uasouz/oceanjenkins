@@ -28,7 +28,6 @@ pipeline{
 
         stage('Build'){
             steps{
-                sh 'npm install'
                 sh 'npm run build'
                 sh 'tar -zcvf app.tar.gz dist'
             }
