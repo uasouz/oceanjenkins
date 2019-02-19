@@ -1,0 +1,7 @@
+node_modules
+**/config.json
+config.json
+.idea
+package-lock.json
+temp
+dist
