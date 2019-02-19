@@ -17,6 +17,7 @@ pipeline{
 
         stage('Test'){
             steps {
+                sh 'npm run test'
                 sh 'npm run test-jenkins'
             }
         }
@@ -33,6 +34,7 @@ pipeline{
      post {
         always {
            archiveArtifacts artifacts: 'app.tar.gz', onlyIfSuccessful: true
+           junit './report/report.xml'
            deleteDir()
         }
    }
