@@ -8,7 +8,7 @@
     "clean": "rimraf dist/",
     "pretest": "tsc -p ./tsconfig.test.json",
     "test": "mocha temp/",
-    "test-jenkins": "JUNIT_REPORT_PATH=./report/report.xml mocha temp/ --colors --reporter mocha-jenkins-reporter",
+    "test-jenkins": "JUNIT_REPORT_PATH=./report/report.xml mocha test/**/*.test.ts --colors --reporter mocha-jenkins-reporter",
     "dev": "node ./dist/index.js",
     "build": "npm run tsc",
     "start": "npm run tsc && node dist/index.js",
