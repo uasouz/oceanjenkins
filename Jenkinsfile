@@ -14,7 +14,7 @@ pipeline{
 
         stage('Prepare Node'){
             steps{
-                sh 'ln -s /usr/bin/nodejs /usr/bin/node'
+                sh 'ln -fs /usr/bin/nodejs /usr/local/bin/node'
             }
         }
 
