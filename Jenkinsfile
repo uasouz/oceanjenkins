@@ -1,13 +1,31 @@
 #!/usr/bin/env groovy
 pipeline{
+
+  environment {
+    registry = "hadara/oceanjenkins"
+    registryCredential = 'dockerhub'
+  }
+
     agent any
 
     tools {nodejs "node"}
+
     stages{
+
+        stage('Prepare Node'){
+            steps{
+                sh 'ln -s /usr/bin/nodejs /usr/bin/node'
+            }
+        }
+
+        stage('Install Dependencies'){
+            steps {
+                sh 'npm install'
+            }
+        }
 
         stage('Test'){
             steps {
-                sh 'npm install'
                 sh 'npm run test'
             }
         }
@@ -18,6 +36,14 @@ pipeline{
                 sh 'npm run build'
                 sh 'tar -zcvf app.tar.gz dist'
             }
+        }
+
+        stage('Building image') {
+          steps{
+            script {
+              docker.build registry + ":$BUILD_NUMBER"
+            }
+          }
         }
 
     }
