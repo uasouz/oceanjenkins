@@ -4,4 +4,5 @@ config.json
 .idea
 package-lock.json
 temp
+report
 dist
