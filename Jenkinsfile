@@ -34,7 +34,7 @@ pipeline{
      post {
         always {
            archiveArtifacts artifacts: 'app.tar.gz', onlyIfSuccessful: true
-           junit './report/report.xml'
+           junit 'report/report.xml'
            deleteDir()
         }
    }
