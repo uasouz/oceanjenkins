@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
 pipeline{
 
+
   environment {
     registry = "hadara/oceanjenkins"
     registryCredential = 'dockerhub'
